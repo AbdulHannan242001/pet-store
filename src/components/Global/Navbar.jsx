@@ -83,7 +83,7 @@ const Navbar = () => {
           <motion.h1
             key={item.name}
             variants={linkVariants}
-            className="text-white text-3xl md:text-5xl font-bold max-w-[1600px] px-[30px] w-full mx-auto cursor-pointer"
+            className="text-white text-3xl md:text-5xl font-bold max-w-[1600px] px-[10px] lg:px-[30px] w-full mx-auto cursor-pointer"
           >
             <motion.button
               className="p-[10px]"
@@ -98,7 +98,7 @@ const Navbar = () => {
 
       {/* Navbar */}
       <div className="w-full sticky top-0 z-[100] backdrop-blur-[8px] pt-0 pb-1">
-        <div className="max-w-[1600px] flex flex-row justify-between mx-auto items-center px-8">
+        <div className="max-w-[1600px] flex flex-row justify-between mx-auto items-center px-[10px] lg:px-[30px]">
           <div className="flex flex-row items-end justify-center gap-x-2">
             <Image
               src={logo}
@@ -106,7 +106,7 @@ const Navbar = () => {
               className="md:h-[60px] h-[40px] border-[2px] rounded border-secondary w-auto object-center object-cover"
             />
             <p
-              className={`leading-none text-2xl font-bold transition-colors ease-in duration-100 delay-500 ${
+              className={`leading-none text-lg lg:text-2xl font-bold transition-colors ease-in duration-100 delay-500 ${
                 active ? "text-white" : "text-primary"
               }`}
             >

@@ -8,9 +8,9 @@ import pets from "../../../public/pets.png";
 
 const About = () => {
   return (
-    <main className="px-[30px] flex bg-primary my-[60px] text-background">
-      <section className="flex flex-row justify-between max-w-[1600px] w-full mx-auto py-[60px]">
-        <div className="w-5/12 flex flex-col">
+    <main className="px-[10px] md:px-[30px] flex bg-primary my-[60px] text-background">
+      <section className="flex flex-col lg:flex-row justify-between max-w-[1600px] w-full mx-auto py-[60px]">
+        <div className="w-full lg:w-5/12 flex flex-col">
           <p className="text-5xl font-bold pb-[30px]">
             More Than a Pet Store —We’re a{" "}
             <span className="text-secondary">Family</span> for Pet Lovers!
@@ -29,7 +29,7 @@ const About = () => {
             your furry companion — we're here to help, guide, and grow with you.
           </p>
         </div>
-        <div className="w-6/12">
+        <div className="w-full lg:w-6/12">
           <Image
             src={pets}
             alt="dog getting a bath"

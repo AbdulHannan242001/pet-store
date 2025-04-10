@@ -20,10 +20,10 @@ const VisitUs = () => {
   };
 
   return (
-    <section ref={containerRef} className="bg-[var(--background)] py-12">
-      <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row items-center">
+    <section ref={containerRef} className="bg-background py-[60px]">
+      <div className="max-w-[1600px] mx-auto flex flex-col lg:flex-row items-center">
         {/* Left Column: Storefront Image */}
-        <div className="w-full md:w-6/12 p-4 md:p-8">
+        <div className="w-full lg:w-6/12 p-[10px] md:p-[30px]">
           <motion.div
             initial={{ boxShadow: "0px 0px 0px rgba(0, 0, 0, 0)" }}
             animate={{
@@ -46,7 +46,7 @@ const VisitUs = () => {
         </div>
 
         {/* Right Column: Location and Contact Info */}
-        <div className="w-full md:w-6/12 p-4 md:p-8 flex flex-col justify-center items-start">
+        <div className="w-full lg:w-6/12 p-4 md:p-8 flex flex-col justify-center items-start">
           <motion.h2
             className="text-3xl md:text-5xl text-primary font-bold tracking-tighter mb-4"
             variants={textVariant}

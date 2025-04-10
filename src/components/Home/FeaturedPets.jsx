@@ -89,10 +89,10 @@ const FeaturedPets = () => {
 
   return (
     <main className="py-[60px] flex flex-col gap-[30px] max-w-[1600px] mx-auto">
-      <p className="text-center mx-auto text-5xl font-bold">Featured Pets</p>
+      <p className="text-center mx-auto text-3xl md:text-5xl font-bold">Featured Pets</p>
       <section className="flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Text Section */}
-        <main className="md:w-4/12 flex flex-col justify-center h-full px-8">
+        <main className="md:w-4/12 flex flex-col justify-center h-full px-[10px] md:px-[30px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -103,19 +103,19 @@ const FeaturedPets = () => {
             >
               <motion.h3
                 variants={childVariants}
-                className="text-2xl font-black text-secondary leading-none pb-1"
+                className="text-base md:text-2xl font-black text-secondary leading-none pb-1"
               >
                 {imageArray[currentSlide].shortTitle}
               </motion.h3>
               <motion.h1
                 variants={childVariants}
-                className="text-4xl font-semibold text-primary pb-3"
+                className="text-xl md:text-4xl font-semibold text-primary pb-3"
               >
                 {imageArray[currentSlide].heading}
               </motion.h1>
               <motion.p
                 variants={childVariants}
-                className="text-lg text-gray-600"
+                className="text-sm md:text-lg text-gray-600"
               >
                 {imageArray[currentSlide].description}
               </motion.p>
@@ -124,17 +124,16 @@ const FeaturedPets = () => {
         </main>
 
         {/* Swiper Section */}
-        <main className="w-full md:w-7/12 h-full flex flex-col justify-center">
+        <main className="w-full md:w-7/12 h-full flex flex-col justify-center md:px-0 px-[10px]">
           <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <Swiper
               modules={[Autoplay]}
               spaceBetween={20}
-              slidesPerView={2}
+              slidesPerView={1}
               breakpoints={{
                 0: { slidesPerView: 1 },
-                600: { slidesPerView: 2 },
-                1200: { slidesPerView: 2 },
-                1300: { slidesPerView: 2 },
+                600: { slidesPerView: 1 },
+                1350: { slidesPerView: 2 },
               }}
               loop={true}
               autoplay={{ delay: 5000 }}

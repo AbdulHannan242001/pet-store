@@ -25,7 +25,7 @@ const Services = () => {
     <main className="flex items-center max-w-[1600px] mx-auto">
       <div
         ref={containerRef}
-        className="flex flex-col md:flex-row w-full"
+        className="flex flex-col-reverse md:flex-row w-full"
       >
         <div className="p-[10px] md:p-[30px] h-fit w-full md:w-6/12 flex items-center justify-between">
           <div className="w-full md:w-10/12 h-[400px] relative rounded overflow-clip">
