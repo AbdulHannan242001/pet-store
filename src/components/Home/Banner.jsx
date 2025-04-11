@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <div className="min-h-[70vh] px-[10px] lg:px-[30px] flex flex-col md:flex-row items-center justify-between max-w-[1600px] mx-auto md:pt-[100px] gap-[30px]">
+    <div id="home" className="min-h-[70vh] px-[10px] lg:px-[30px] flex flex-col md:flex-row items-center justify-between max-w-[1600px] mx-auto md:pt-[80px] gap-[30px]">
       <div className="flex flex-col items-start justify-start md:w-6/12">
         <p className="text-sm md:text-base font-extrabold text-secondary uppercase pb-1">
           Your neighborhood pet haven!

@@ -22,7 +22,7 @@ const Services = () => {
   };
 
   return (
-    <main className="flex items-center max-w-[1600px] mx-auto">
+    <main id="services" className="flex items-center max-w-[1600px] mx-auto">
       <div
         ref={containerRef}
         className="flex flex-col-reverse md:flex-row w-full"
@@ -98,6 +98,26 @@ const Services = () => {
             >
               <TbPawFilled className="text-secondary" size={24} />
               <p>Health Checkups</p>
+            </motion.li>
+            <motion.li
+              className="text-base md:text-xl flex flex-row gap-4 items-center text-zinc-600 font-semibold max-w-lg tracking-tight"
+              variants={textVariant}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              custom={3.50}
+            >
+              <TbPawFilled className="text-secondary" size={24} />
+              <p>Pet Daycare</p>
+            </motion.li>
+            <motion.li
+              className="text-base md:text-xl flex flex-row gap-4 items-center text-zinc-600 font-semibold max-w-lg tracking-tight"
+              variants={textVariant}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              custom={3.75}
+            >
+              <TbPawFilled className="text-secondary" size={24} />
+              <p>Custom Pet Diets</p>
             </motion.li>
           </ul>
           <motion.div

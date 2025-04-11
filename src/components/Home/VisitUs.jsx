@@ -20,7 +20,7 @@ const VisitUs = () => {
   };
 
   return (
-    <section ref={containerRef} className="bg-background py-[60px]">
+    <section id="visit-us" ref={containerRef} className="bg-background py-[60px]">
       <div className="max-w-[1600px] mx-auto flex flex-col lg:flex-row items-center">
         {/* Left Column: Storefront Image */}
         <div className="w-full lg:w-6/12 p-[10px] md:p-[30px]">
