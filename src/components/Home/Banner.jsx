@@ -4,10 +4,14 @@ import React from "react";
 import OverlapButton from "../Buttons/OverlapButton";
 import banner from "../../../public/banner.jpg";
 import Image from "next/image";
+import { Link } from "react-scroll";
 
 const Banner = () => {
   return (
-    <div id="home" className="min-h-[70vh] px-[10px] lg:px-[30px] flex flex-col md:flex-row items-center justify-between max-w-[1600px] mx-auto md:pt-[80px] gap-[30px]">
+    <div
+      id="home"
+      className="min-h-[70vh] px-[10px] lg:px-[30px] flex flex-col md:flex-row items-center justify-between max-w-[1600px] mx-auto md:pt-[80px] gap-[30px]"
+    >
       <div className="flex flex-col items-start justify-start md:w-6/12">
         <p className="text-sm md:text-base font-extrabold text-secondary uppercase pb-1">
           Your neighborhood pet haven!
@@ -21,7 +25,9 @@ const Banner = () => {
           perfect gear to pamper your pet — we’ve got it all under one roof.
           Come meet your next companion in person!
         </p>
-        <OverlapButton text={"Visit Our Store"} onClick={() => {}} />
+        <Link to="visit-us" spy={true} smooth={true} duration={500}>
+          <OverlapButton text={"Visit Our Store"}/>
+        </Link>
       </div>
       <div className="relative md:w-6/12 h-full">
         <Image

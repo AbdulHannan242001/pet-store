@@ -4,16 +4,13 @@ import React from "react";
 import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
-import { Link as ScrollLink } from "react-scroll"; 
 import logo from "../../../public/logo.png";
 
 const Footer = () => {
   return (
     <footer className="bg-[var(--background)] text-[var(--primary)]">
-      {/* Top Section: Logo, Tagline, and Newsletter */}
       <main className="bg-[var(--background)] border-b border-gray-300">
         <div className="flex flex-col md:flex-row justify-between items-center p-[30px] max-w-[1600px] mx-auto">
-          {/* Logo and Tagline */}
           <div className="flex flex-col items-center md:items-start mb-6 md:mb-0">
             <Link href="/" className="flex items-end gap-2">
               <Image
@@ -33,8 +30,6 @@ const Footer = () => {
               <span className="text-[var(--secondary)]">🐾</span>
             </p>
           </div>
-
-          {/* Newsletter Signup */}
           <div className="w-full md:w-auto max-w-md text-center md:text-left">
             <h3 className="text-lg font-['Poppins'] font-bold text-[var(--secondary)] mb-2">
               Join Our Pet-Loving Community!
@@ -62,37 +57,31 @@ const Footer = () => {
           </div>
         </div>
       </main>
-
-      {/* Middle Section: Navigation, Services, and Contact */}
       <main className="bg-gray-100">
         <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between p-[30px]">
-          {/* Quick Links (Explore) */}
           <div className="flex-1 min-w-[200px] mb-6 md:mb-0 text-center md:text-left">
             <h3 className="text-base font-['Poppins'] font-bold text-[var(--secondary)] mb-4">
               Explore
             </h3>
             <ul className="space-y-2">
               {[
-                { name: "Home", to: "home" },
-                { name: "Services", to: "services" },
-                { name: "Find Us", to: "visit-us" },
+                { name: "Home", to: "/" },
+                { name: "Services", to: "/#services" },
+                { name: "About", to: "/about" },
+                { name: "Blog", to: "/blog" },
+                { name: "Find Us", to: "/#visit-us" },
               ].map((item) => (
                 <li key={item.name}>
-                  <ScrollLink
-                    to={item.to}
-                    smooth={true}
-                    duration={500}
-                    offset={-80}
+                  <Link
+                    href={item.to}
                     className="text-sm text-[var(--primary)] hover:text-[var(--secondary)] transition-colors cursor-pointer"
                   >
                     {item.name}
-                  </ScrollLink>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
-
-          {/* Services */}
           <div className="flex-1 min-w-[200px] mb-6 md:mb-0 text-center md:text-left">
             <h3 className="text-base font-['Poppins'] font-bold text-[var(--secondary)] mb-4">
               Our Services
@@ -105,8 +94,6 @@ const Footer = () => {
               <li className="text-sm">Custom Pet Diets</li>
             </ul>
           </div>
-
-          {/* Contact Info */}
           <div className="flex-1 min-w-[200px] text-center md:text-left">
             <h3 className="text-base font-['Poppins'] font-bold text-[var(--secondary)] mb-4">
               Visit Us
@@ -134,10 +121,7 @@ const Footer = () => {
           </div>
         </div>
       </main>
-
-      {/* Bottom Section: Social Media and Copyright */}
       <div className="flex flex-col md:flex-row justify-between items-center px-[30px] py-[10px] bg-[var(--background)] max-w-[1600px] mx-auto">
-        {/* Social Media */}
         <div className="mb-4 md:mb-0 text-center md:text-left">
           <h4 className="text-sm font-['Poppins'] font-bold text-[var(--secondary)] mb-2">
             Follow Us for Pet Fun!
@@ -172,8 +156,6 @@ const Footer = () => {
             </a>
           </div>
         </div>
-
-        {/* Copyright */}
         <div className="text-center md:text-right">
           <p className="text-xs text-gray-500">
             © 2025 Pet Paradise. All Rights Reserved.

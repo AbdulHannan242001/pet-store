@@ -1,20 +1,37 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import HamburgerButton from "../Buttons/HamburgerButton";
 import logo from "../../../public/logo.png";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
+  const router = useRouter();
 
   const handleClick = () => {
     setActive(!active);
   };
 
-  // Animation variants for the mobile dropdown menu
+  const handleScrollLink = (to) => {
+    router.push(`/#${to}`);
+    setActive(false); // Close mobile menu
+  };
+
+  // Handle scrolling to section when page loads with a hash
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash) {
+      setTimeout(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, []);
+
   const dropdownVariants = {
     show: {
       opacity: 1,
@@ -35,7 +52,6 @@ const Navbar = () => {
     },
   };
 
-  // Animation variants for the mobile menu links
   const linkVariants = {
     show: {
       opacity: 1,
@@ -55,9 +71,7 @@ const Navbar = () => {
 
   return (
     <div className="w-full sticky top-0 z-[100] backdrop-blur-md shadow-md bg-[var(--primary)]">
-      {/* Main Navbar */}
       <div className="max-w-[1600px] mx-auto flex flex-row justify-between items-center px-4 sm:px-6 md:px-8 py-3">
-        {/* Logo */}
         <div className="flex flex-row items-center gap-x-2 sm:gap-x-3">
           <Image
             src={logo}
@@ -70,42 +84,47 @@ const Navbar = () => {
             Pet Paradise
           </p>
         </div>
-
-        {/* Desktop Navigation Links */}
         <div className="hidden md:flex flex-row gap-3 sm:gap-4 md:gap-6 items-center">
           {[
-            { name: "Home", to: "home" },
-            { name: "Services", to: "services" },
-            { name: "Visit Us", to: "visit-us" },
+            { name: "Home", to: "/", isPage: true },
+            { name: "Services", to: "services", isPage: false },
+            { name: "About", to: "/about", isPage: true },
+            { name: "Blog", to: "/blog", isPage: true },
+            { name: "Visit Us", to: "visit-us", isPage: false },
           ].map((item) => (
             <motion.div
               key={item.name}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <ScrollLink
-                to={item.to}
-                smooth={true}
-                duration={500}
-                offset={-80}
-                className="relative group flex flex-row gap-1 items-center text-[var(--background)] text-sm sm:text-base md:text-lg font-['Poppins'] font-medium transition-colors cursor-pointer"
-              >
-                {item.name}
-                <motion.span className="absolute right-0 top-[-50%] text-[var(--secondary)] group-hover:block hidden">
-                  🐾
-                </motion.span>
-              </ScrollLink>
+              {item.isPage ? (
+                <Link
+                  href={item.to}
+                  className="relative group flex flex-row gap-1 items-center text-[var(--background)] text-sm sm:text-base md:text-lg font-['Poppins'] font-medium transition-colors cursor-pointer"
+                >
+                  {item.name}
+                  <motion.span className="absolute right-0 top-[-50%] text-[var(--secondary)] group-hover:block hidden">
+                    🐾
+                  </motion.span>
+                </Link>
+              ) : (
+                <div
+                  onClick={() => handleScrollLink(item.to)}
+                  className="relative group flex flex-row gap-1 items-center text-[var(--background)] text-sm sm:text-base md:text-lg font-['Poppins'] font-medium transition-colors cursor-pointer"
+                >
+                  {item.name}
+                  <motion.span className="absolute right-0 top-[-50%] text-[var(--secondary)] group-hover:block hidden">
+                    🐾
+                  </motion.span>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
-
-        {/* Hamburger Button (Mobile Only) */}
         <div className="md:hidden" onClick={handleClick}>
           <HamburgerButton active={active} aria-label={active ? "Close menu" : "Open menu"} />
         </div>
       </div>
-
-      {/* Mobile Dropdown Menu */}
       <motion.div
         variants={dropdownVariants}
         initial="hide"
@@ -114,27 +133,37 @@ const Navbar = () => {
       >
         <div className="max-w-[1600px] mx-auto flex flex-col items-start px-4 sm:px-6 py-2">
           {[
-            { name: "Home", to: "home" },
-            { name: "Services", to: "services" },
-            { name: "Visit Us", to: "visit-us" },
+            { name: "Home", to: "/", isPage: true },
+            { name: "Services", to: "services", isPage: false },
+            { name: "About", to: "/about", isPage: true },
+            { name: "Blog", to: "/blog", isPage: true },
+            { name: "Visit Us", to: "visit-us", isPage: false },
           ].map((item) => (
             <motion.div
               key={item.name}
               variants={linkVariants}
               className="py-2 w-full"
             >
-              <ScrollLink
-                to={item.to}
-                smooth={true}
-                duration={500}
-                offset={-80}
-                onClick={() => setActive(false)}
-                className="flex flex-row gap-2 items-center text-[var(--background)] text-base sm:text-lg font-['Poppins'] font-medium transition-colors cursor-pointer"
-                tabIndex={active ? 0 : -1}
-              >
-                {item.name}
-                <span className="text-[var(--secondary)]">🐾</span>
-              </ScrollLink>
+              {item.isPage ? (
+                <Link
+                  href={item.to}
+                  onClick={() => setActive(false)}
+                  className="flex flex-row gap-2 items-center text-[var(--background)] text-base sm:text-lg font-['Poppins'] font-medium transition-colors cursor-pointer"
+                  tabIndex={active ? 0 : -1}
+                >
+                  {item.name}
+                  <span className="text-[var(--secondary)]">🐾</span>
+                </Link>
+              ) : (
+                <div
+                  onClick={() => handleScrollLink(item.to)}
+                  className="flex flex-row gap-2 items-center text-[var(--background)] text-base sm:text-lg font-['Poppins'] font-medium transition-colors cursor-pointer"
+                  tabIndex={active ? 0 : -1}
+                >
+                  {item.name}
+                  <span className="text-[var(--secondary)]">🐾</span>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

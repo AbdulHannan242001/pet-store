@@ -5,6 +5,7 @@ import { TbPawFilled } from "react-icons/tb";
 import OverlapButton from "../Buttons/OverlapButton";
 import service from "../../../public/service.jpg";
 import Image from "next/image";
+import Link from "next/link";
 
 const Services = () => {
   // Ref for the animation container
@@ -66,7 +67,8 @@ const Services = () => {
             animate={isInView ? "visible" : "hidden"}
             custom={2.5}
           >
-            Pamper Your Pet with Our <span className="text-secondary">Pawsome</span> Services!
+            Pamper Your Pet with Our{" "}
+            <span className="text-secondary">Pawsome</span> Services!
           </motion.p>
           <ul className="">
             <motion.li
@@ -104,7 +106,7 @@ const Services = () => {
               variants={textVariant}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              custom={3.50}
+              custom={3.5}
             >
               <TbPawFilled className="text-secondary" size={24} />
               <p>Pet Daycare</p>
@@ -127,8 +129,9 @@ const Services = () => {
             animate={isInView ? "visible" : "hidden"}
             custom={3.5}
           >
-            <OverlapButton text={"Learn More"} onClick={() => {}} />
-            <OverlapButton text={"Book Now"} onClick={() => {}} />
+            <Link href="/about">
+              <OverlapButton text={"Learn More"} onClick={() => {}} />
+            </Link>
           </motion.div>
         </div>
       </div>
