@@ -1,6 +1,6 @@
-// import blog1 from "../public/blog1.jpg";
-// import blog2 from "../public/blog2.jpg";
-// import blog3 from "../public/blog3.jpg";
+import blog1 from "../../../public/blog1.jpg";
+import blog2 from "../../../public/blog2.png";
+import blog3 from "../../../public/blog3.webp";
 
 export const blogPosts = [
   {
@@ -8,7 +8,7 @@ export const blogPosts = [
     title: "Top 5 Tips for Keeping Your Pet Happy",
     excerpt:
       "Learn how to keep your furry friend healthy and entertained with these simple tips.",
-    image: '',
+    image: blog1,
     date: "May 15, 2025",
     content: (
       <>
@@ -46,7 +46,7 @@ export const blogPosts = [
     title: "Why Regular Grooming Matters",
     excerpt:
       "Discover the benefits of professional grooming for your pet’s health and happiness.",
-    image: '',
+    image: blog2,
     date: "May 10, 2025",
     content: (
       <>
@@ -76,7 +76,7 @@ export const blogPosts = [
     title: "Choosing the Right Pet Food",
     excerpt:
       "A guide to selecting the best diet for your pet’s unique needs.",
-    image: '',
+    image: blog3,
     date: "May 5, 2025",
     content: (
       <>

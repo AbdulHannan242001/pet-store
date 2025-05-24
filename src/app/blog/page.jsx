@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { blogPosts } from "../lib/blogPost";
 import OverlapButton from "@/components/Buttons/OverlapButton";
+import blogBanner from "../../../public/blogBanner.jpg";
 
 const Blog = () => {
   const containerRef = useRef(null);
@@ -25,15 +26,15 @@ const Blog = () => {
       id="blog"
       className="py-[60px] bg-background max-w-[1600px] mx-auto px-[10px] md:px-[30px]"
     >
-      <div ref={containerRef} className="relative min-h-[80vh]">
+      <div ref={containerRef} className="relative">
         <Image
-          src=""
+          src={blogBanner}
           alt="A group of pet animals"
           className="w-full h-full object-cover object-center"
         />
-        <div className="flex flex-col items-center justify-center absolute inset-0 h-full w-full bg-black/20">
+        <div className="flex flex-col items-start justify-center absolute inset-0 h-full w-full p-[30px]">
           <motion.h1
-            className="text-3xl md:text-5xl font-bold text-primary text-center mb-8 "
+            className="text-3xl md:text-5xl font-bold text-primary text-center mb-4"
             variants={textVariant}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -42,7 +43,7 @@ const Blog = () => {
             Pet Paradise <span className="text-secondary">Blog</span>
           </motion.h1>
           <motion.p
-            className="text-lg text-zinc-600 text-center mb-12 max-w-2xl mx-auto"
+            className="text-lg text-zinc-600 text-center mb-12 max-w-2xl"
             variants={textVariant}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}

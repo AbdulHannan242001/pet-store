@@ -4,12 +4,12 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import OverlapButton from "../../components/Buttons/OverlapButton";
-// import pets from "../../public/pets.png";
-// import customer1 from "../../public/customer1.jpg";
-// import customer2 from "../../public/customer2.jpg";
-// import customer3 from "../../public/customer3.jpg";
-// import team1 from "../../public/team1.jpg";
-// import team2 from "../../public/team2.jpg";
+import pets from "../../../public/pets.png";
+import customer1 from "../../../public/customer1.webp";
+import customer2 from "../../../public/customer2.jpg";
+import customer3 from "../../../public/customer3.jpg";
+import team1 from "../../../public/team1.jpg";
+import team2 from "../../../public/team2.jpg";
 
 const About = () => {
   const aboutRef = useRef(null);
@@ -35,17 +35,17 @@ const About = () => {
     {
       name: "Sarah M.",
       quote: "The grooming service at Pet Paradise is top-notch! My poodle, Max, always comes out looking and feeling great.",
-      image: '',
+      image: customer1,
     },
     {
       name: "James T.",
       quote: "I found the perfect collar for my dog, Buddy, and the staff was so helpful in recommending the right fit!",
-      image: '',
+      image: customer2,
     },
     {
       name: "Emily R.",
       quote: "The daycare service is a lifesaver. My kitten, Luna, loves playing there, and I trust the team completely.",
-      image: '',
+      image: customer3,
     },
   ];
 
@@ -54,13 +54,13 @@ const About = () => {
       name: "Dr. Lisa Paws",
       role: "Veterinarian",
       bio: "Dr. Lisa ensures every pet gets top-notch health checkups with a caring touch.",
-      image: '',
+      image: team2,
     },
     {
       name: "Mike Tails",
       role: "Groomer & Trainer",
       bio: "Mike’s expertise in grooming and training makes every pet look and behave their best.",
-      image: '',
+      image: team1,
     },
   ];
 
@@ -93,9 +93,9 @@ const About = () => {
           custom={1.5}
         >
           <Image
-            src={''}
+            src={pets}
             alt="Pets at Pet Paradise"
-            className="w-full h-[400px] object-cover border-2 border-secondary rounded-2xl"
+            className="w-full h-[400px] object-cover shadow-lg rounded-2xl bg-primary"
           />
         </motion.div>
       </section>
